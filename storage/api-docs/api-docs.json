@@ -1,0 +1,2139 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Gestion Usuario",
+        "contact": {
+            "email": "antony.rodriguez@mimco.com.pe"
+        },
+        "version": "1"
+    },
+    "paths": {
+        "/GestionUsuarios/public/index.php/noti_usua": {
+            "post": {
+                "tags": [
+                    "Notificaciones"
+                ],
+                "summary": "Muestra las notificaciones solamente los 5 dias ultimos",
+                "operationId": "App\\Http\\Controllers\\NotificacionesController::noti_usua",
+                "parameters": [
+                    {
+                        "name": "codi_usua",
+                        "in": "path",
+                        "description": "Codigo del Usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "antony_rodriguez"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varNumeDni": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "codi_usua": "antony_rodriguez"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Muestra las notificaciones solamente los 5 dias ultimos"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/most_info_noti": {
+            "post": {
+                "tags": [
+                    "Notificaciones"
+                ],
+                "summary": "Muestra la informacion de la notificacion",
+                "operationId": "App\\Http\\Controllers\\NotificacionesController::most_info_noti",
+                "parameters": [
+                    {
+                        "name": "intIdNoti",
+                        "in": "path",
+                        "description": "Ingrese el id de la notificacion",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2"
+                    },
+                    {
+                        "name": "codi_usua",
+                        "in": "path",
+                        "description": "Ingrese el codigo del usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "antony_rodriguez"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdNoti": {
+                                        "type": "string"
+                                    },
+                                    "codi_usua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdNoti": "1",
+                                    "codi_usua": "antony_rodriguez"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Muestra la informacion de la notificacion y cambia el estado a leido"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/traer_tags_usua_publi": {
+            "post": {
+                "tags": [
+                    "Notificaciones"
+                ],
+                "summary": "Traer el tags usua publico",
+                "operationId": "App\\Http\\Controllers\\NotificacionesController::traer_tags_usua_publi",
+                "parameters": [
+                    {
+                        "name": "varPropTags",
+                        "in": "path",
+                        "description": "Ingrese el usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "jose_castillo"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varPropTags": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varPropTags": "jose_castillo"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Muestra los tags que tiene ese usuario tanto privado como publico"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/muest_integrante_tags": {
+            "post": {
+                "tags": [
+                    "Notificaciones"
+                ],
+                "summary": "Muestrar los integrante del taps",
+                "operationId": "App\\Http\\Controllers\\NotificacionesController::muest_integrante_tags",
+                "parameters": [
+                    {
+                        "name": "intIdTags",
+                        "in": "path",
+                        "description": "documento de identidad",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdTags": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdTags": "2"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Muestrar el nombre completo y usuario mediante el indItTag"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/regis_noti_deta_noti": {
+            "post": {
+                "tags": [
+                    "Notificaciones"
+                ],
+                "summary": "registrar la notificacion",
+                "operationId": "App\\Http\\Controllers\\NotificacionesController::regis_noti_deta_noti",
+                "parameters": [
+                    {
+                        "name": "asun_noti",
+                        "in": "path",
+                        "description": "Ingrese el Asunto de la notificacion",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Modificar_andy"
+                    },
+                    {
+                        "name": "modu_prog",
+                        "in": "path",
+                        "description": "Ingrese ingrese le modulo de la intefaz",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "PRUEBA"
+                    },
+                    {
+                        "name": "varDescNoti",
+                        "in": "path",
+                        "description": "Ingrese la descripcion de la notificacion",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Prueba_Andy"
+                    },
+                    {
+                        "name": "acti_usua",
+                        "in": "path",
+                        "description": "Ingrese el codigo del usuario que va realizar la notificacion",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "usuario_usuario"
+                    },
+                    {
+                        "name": "intIdTags",
+                        "in": "path",
+                        "description": "Ingrese el id del tags",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "Personal",
+                        "in": "path",
+                        "description": "Ingrese los usuarios",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "usuario_ancajima,usuario_timana,jose_castillo,antony_rodriguez,usuario_edimir"
+                    },
+                    {
+                        "name": "ruta_prog",
+                        "in": "path",
+                        "description": "Ingrese los usuarios",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "varNombarch",
+                        "in": "path",
+                        "description": "Ingrese el nombre del archivo",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "asun_noti": {
+                                        "type": "string"
+                                    },
+                                    "modu_prog": {
+                                        "type": "string"
+                                    },
+                                    "varDescNoti": {
+                                        "type": "string"
+                                    },
+                                    "acti_usua": {
+                                        "type": "string"
+                                    },
+                                    "intIdTags": {
+                                        "type": "string"
+                                    },
+                                    "Personal": {
+                                        "type": "string"
+                                    },
+                                    "ruta_prog": {
+                                        "type": "string"
+                                    },
+                                    "varNombarch": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "asun_noti": "Modificar_andy",
+                                    "modu_prog": "PRUEBA",
+                                    "varDescNoti": "Prueba_Andy",
+                                    "acti_usua": "andy_ancajima",
+                                    "ruta_prog": "prueba_snud",
+                                    "varNombarch": "jisus",
+                                    "intIdTags": "1",
+                                    "Personal": "usuario_ancajima,usuario_timana,jose_castillo,antony_rodriguez,usuario_edimir"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sin Mensaje"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/modi_tags": {
+            "post": {
+                "tags": [
+                    "Notificaciones"
+                ],
+                "summary": "Modificar el tags",
+                "operationId": "App\\Http\\Controllers\\NotificacionesController::modi_tags",
+                "parameters": [
+                    {
+                        "name": "intIdTags",
+                        "in": "path",
+                        "description": "Ingrese el id del tags",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2"
+                    },
+                    {
+                        "name": "codi_usua",
+                        "in": "path",
+                        "description": "Ingrese los usuarios ",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "edimir_ancajima"
+                    },
+                    {
+                        "name": "acti_usua",
+                        "in": "path",
+                        "description": "Ingrese el usuario que ha modificado",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "usuario_usuario"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varNumeDni": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varNumeDni": "25214121"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "se cuando se modifica los campos se le envia la respuesta: '' "
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/regis_tags": {
+            "post": {
+                "tags": [
+                    "Notificaciones"
+                ],
+                "summary": "Permite registrar el tags",
+                "operationId": "App\\Http\\Controllers\\NotificacionesController::regis_tags",
+                "parameters": [
+                    {
+                        "name": "varDescTags",
+                        "in": "path",
+                        "description": "documento de identidad",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "PRUEBA"
+                    },
+                    {
+                        "name": "codi_usua",
+                        "in": "path",
+                        "description": "Ingresamos todo los usuarios que se ha  asignar en el grupó",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "usuario_usuario"
+                    },
+                    {
+                        "name": "acti_usua",
+                        "in": "path",
+                        "description": "Ingresamos al usuario que va registrar el nuevo grupo",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "usuario_prueba"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varDescTags": {
+                                        "type": "string"
+                                    },
+                                    "codi_usua": {
+                                        "type": "string"
+                                    },
+                                    "acti_usua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varDescTags": "PRUEBA",
+                                    "codi_usua": "usuario_usuario",
+                                    "acti_usua": "usuario_prueba"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registro Sactifactorio"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/list_usua_noti": {
+            "get": {
+                "tags": [
+                    "Notificaciones"
+                ],
+                "summary": "lista los usuarios para las notificaciones",
+                "operationId": "App\\Http\\Controllers\\NotificacionesController::list_usua_noti",
+                "responses": {
+                    "200": {
+                        "description": "Lista los usuarios para las notificaciones."
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/gsu_obte_prog_medi_idusu": {
+            "post": {
+                "tags": [
+                    "Usuarios Accion"
+                ],
+                "summary": "Obtener programa mediante el id usuario",
+                "operationId": "App\\Http\\Controllers\\UsuarioAccionController::gsu_obte_prog_medi_idusu",
+                "parameters": [
+                    {
+                        "name": "varCodiUsua",
+                        "in": "path",
+                        "description": "codigo del usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "usuarios_usuario"
+                    },
+                    {
+                        "name": "varCodiProg",
+                        "in": "path",
+                        "description": "codigo del programa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "ASIG_LIST_OT"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varCodiUsua": {
+                                        "type": "string"
+                                    },
+                                    "varCodiProg": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varCodiUsua": "usuarios_usuario",
+                                    "varCodiProg": "ASIG_LIST_OT"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "obtenemos los programas que tiene ese usuario"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/list_boto": {
+            "get": {
+                "tags": [
+                    "Usuarios Accion"
+                ],
+                "summary": "lista los usuarios",
+                "operationId": "App\\Http\\Controllers\\UsuarioAccionController::list_boto",
+                "responses": {
+                    "200": {
+                        "description": "Lista los botones"
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/regi_boto": {
+            "post": {
+                "tags": [
+                    "Usuarios Accion"
+                ],
+                "summary": "registrar los botones ",
+                "operationId": "App\\Http\\Controllers\\UsuarioAccionController::regi_boto",
+                "parameters": [
+                    {
+                        "name": "intIdProg",
+                        "in": "path",
+                        "description": "Ingrese el id del programa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "21"
+                    },
+                    {
+                        "name": "varDescBoto",
+                        "in": "path",
+                        "description": "Descripcion del boto que va realizar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "ANULAR AVANCE_PRUEBA"
+                    },
+                    {
+                        "name": "acti_usua",
+                        "in": "path",
+                        "description": "Ingrese el usuario ",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "jose_casillo"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varNumeDni": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varNumeDni": "25214121"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sin Mensaje"
+                    },
+                    "407": {
+                        "description": "El Documento de identidad ingresado no se encuentra registrado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/vali_boto": {
+            "post": {
+                "tags": [
+                    "Usuarios Accion"
+                ],
+                "summary": "obtiene datos del usuario a través del dni",
+                "operationId": "App\\Http\\Controllers\\UsuarioAccionController::vali_boto",
+                "parameters": [
+                    {
+                        "name": "intIdBoton",
+                        "in": "path",
+                        "description": "Ingrese el id del boton ",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdBoton": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdBoton": "2"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "muestra la informacion deacuerdo ala idea\n     * "
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/actua_boto": {
+            "post": {
+                "tags": [
+                    "Usuarios Accion"
+                ],
+                "summary": "actualizar boton",
+                "operationId": "App\\Http\\Controllers\\UsuarioAccionController::actua_boto",
+                "parameters": [
+                    {
+                        "name": "intIdBoton",
+                        "in": "path",
+                        "description": "ingrese el id del boton",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2"
+                    },
+                    {
+                        "name": "intIdProg",
+                        "in": "path",
+                        "description": "ingrese el id del programa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "120"
+                    },
+                    {
+                        "name": "varDescBoto",
+                        "in": "path",
+                        "description": "ingrese la descripcion del boton",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "PRUEBA_DE BOTON"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdBoton": {
+                                        "type": "string"
+                                    },
+                                    "intIdProg": {
+                                        "type": "string"
+                                    },
+                                    "varDescBoto": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdBoton": "2",
+                                    "intIdProg": "120",
+                                    "varDescBoto": "PRUEBA_DE BOTON"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Actualizacion Satisfactoria"
+                    },
+                    "201": {
+                        "description": "ya existe la descripcion"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/comb_asig_etapa_actu_proy": {
+            "post": {
+                "tags": [
+                    "Usuarios Accion"
+                ],
+                "summary": "combo asignar etapa actual proyecto",
+                "operationId": "App\\Http\\Controllers\\UsuarioAccionController::comb_asig_etapa_actu_proy",
+                "parameters": [
+                    {
+                        "name": "varCodiUsua",
+                        "in": "path",
+                        "description": "ingrse el codigo del usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "usuario_usuario"
+                    },
+                    {
+                        "name": "intIdProy",
+                        "in": "path",
+                        "description": "ingrese el id del proyecto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "126"
+                    },
+                    {
+                        "name": "intIdTipoProducto",
+                        "in": "path",
+                        "description": "ingrese el id tipo producto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varCodiUsua": {
+                                        "type": "string"
+                                    },
+                                    "intIdProy": {
+                                        "type": "string"
+                                    },
+                                    "intIdTipoProducto": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varCodiUsua": "usuario_usuario",
+                                    "intIdProy": "126",
+                                    "intIdTipoProducto": "1"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sin Mensaje"
+                    },
+                    "407": {
+                        "description": "El Documento de identidad ingresado no se encuentra registrado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/elim_asig_boto_todo": {
+            "post": {
+                "tags": [
+                    "Usuarios Accion"
+                ],
+                "summary": "Eliminar todos las asignaciones de los botones de un programa",
+                "operationId": "App\\Http\\Controllers\\UsuarioAccionController::elim_asig_boto_todo",
+                "parameters": [
+                    {
+                        "name": "varCodiUsua",
+                        "in": "path",
+                        "description": "Ingrese el codigo del usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "usuario_usuario"
+                    },
+                    {
+                        "name": "intIdProg",
+                        "in": "path",
+                        "description": "Ingrese el idPrograma",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1000"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varCodiUsua": {
+                                        "type": "string"
+                                    },
+                                    "intIdProg": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varCodiUsua": "usuario_usuario",
+                                    "intIdProg": "1000"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Se ha eliminado"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/obte_boto_medi_modu_prog": {
+            "post": {
+                "tags": [
+                    "Usuarios Accion"
+                ],
+                "summary": "Obtener los botones media el modulo de programa",
+                "operationId": "App\\Http\\Controllers\\UsuarioAccionController::obte_boto_medi_modu_prog",
+                "parameters": [
+                    {
+                        "name": "intIdSoft",
+                        "in": "path",
+                        "description": "Ingrese el id del software",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "20"
+                    },
+                    {
+                        "name": "intIdProg",
+                        "in": "path",
+                        "description": "Ingrese el idPrograma",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1000"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdSoft": {
+                                        "type": "string"
+                                    },
+                                    "intIdProg": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdSoft": "20",
+                                    "intIdProg": "1000"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "recbe una lista del los botones dependiendo al modulo y programa"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/check_permiso_boto": {
+            "post": {
+                "tags": [
+                    "Usuarios Accion"
+                ],
+                "summary": "Obtener los botones media el modulo de programa",
+                "operationId": "App\\Http\\Controllers\\UsuarioAccionController::check_permiso_boto",
+                "parameters": [
+                    {
+                        "name": "varCodiUsua",
+                        "in": "path",
+                        "description": "Ingrese el id del software",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "usuarios_usuario"
+                    },
+                    {
+                        "name": "intIdProg",
+                        "in": "path",
+                        "description": "Ingrese el idPrograma",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1000"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varCodiUsua": {
+                                        "type": "string"
+                                    },
+                                    "intIdProg": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varCodiUsua": "usuario_usuarios",
+                                    "intIdProg": "1000"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "recbe una lista del los botones dependiendo al modulo y programa"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/regi_check_usua_boto": {
+            "post": {
+                "tags": [
+                    "Usuarios Accion"
+                ],
+                "summary": "registra los check del usua botono",
+                "operationId": "App\\Http\\Controllers\\UsuarioAccionController::regi_check_usua_boto",
+                "parameters": [
+                    {
+                        "name": "varCodiUsua",
+                        "in": "path",
+                        "description": "Ingrese el codigo del usuario.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "codigo_usuario"
+                    },
+                    {
+                        "name": "intIdProg",
+                        "in": "path",
+                        "description": "documento de intIdProg",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1000"
+                    },
+                    {
+                        "name": "intIdBoton",
+                        "in": "path",
+                        "description": "documento de intIdBoton",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1000"
+                    },
+                    {
+                        "name": "acti_usua",
+                        "in": "path",
+                        "description": "documento de acti_usua",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "usuario_logueado"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varCodiUsua": {
+                                        "type": "string"
+                                    },
+                                    "intIdProg": {
+                                        "type": "string"
+                                    },
+                                    "intIdBoton": {
+                                        "type": "string"
+                                    },
+                                    "acti_usua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varCodiUsua": "codigo_usuario",
+                                    "intIdProg": "1000",
+                                    "intIdBoton": "1000",
+                                    "acti_usua": "usuario_logueado"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sin Mensaje"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/regi_usua": {
+            "post": {
+                "tags": [
+                    "Registrar usuario"
+                ],
+                "summary": "permite registro de usuarios",
+                "operationId": "App\\Http\\Controllers\\UsuarioController::regi_usua",
+                "parameters": [
+                    {
+                        "name": "varNumeDni",
+                        "in": "path",
+                        "description": "documento de identidad",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "11111111"
+                    },
+                    {
+                        "name": "varNombUsua",
+                        "in": "path",
+                        "description": "Nombre",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Andy"
+                    },
+                    {
+                        "name": "varApelUsua",
+                        "in": "path",
+                        "description": "Apellido",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Ancajima"
+                    },
+                    {
+                        "name": "varCodiUsua",
+                        "in": "path",
+                        "description": "Codigo usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "andy_cjam"
+                    },
+                    {
+                        "name": "varClavUsua",
+                        "in": "path",
+                        "description": "Clave",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "11111"
+                    },
+                    {
+                        "name": "varCorrUsua",
+                        "in": "path",
+                        "description": "correo institucional",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "andy@mimco.com.pe"
+                    },
+                    {
+                        "name": "varTelfUsua",
+                        "in": "path",
+                        "description": "telefono personal",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "12141214"
+                    },
+                    {
+                        "name": "varEstaUsua",
+                        "in": "path",
+                        "description": "estado",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "ACT"
+                    },
+                    {
+                        "name": "codi_usua",
+                        "in": "path",
+                        "description": "usuario quien registra",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "usuario"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varNumeDni": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varNumeDni": "25214121",
+                                    "varNombUsua": "Andy",
+                                    "varApelUsua": "Bladeu",
+                                    "varCodiUsua": "anca_sca",
+                                    "varClavUsua": "521412",
+                                    "varCorrUsua": "andy@mimco.com.pe",
+                                    "varTelfUsua": "2521412",
+                                    "varEstaUsua": "ACT",
+                                    "codi_usua": "usuario"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registro Satisfactorio"
+                    },
+                    "407": {
+                        "description": "DNI ya se encuentra registrado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    },
+                    "408": {
+                        "description": "Codigo de usuario ya se encuentra registrado."
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/validar_usuario": {
+            "post": {
+                "tags": [
+                    "Obtener usuario"
+                ],
+                "summary": "obtiene datos del usuario a través del dni",
+                "operationId": "App\\Http\\Controllers\\UsuarioController::validar_usuario",
+                "parameters": [
+                    {
+                        "name": "varNumeDni",
+                        "in": "path",
+                        "description": "documento de identidad",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varNumeDni": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varNumeDni": "25214121"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sin Mensaje"
+                    },
+                    "407": {
+                        "description": "El Documento de identidad ingresado no se encuentra registrado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/actu_usua": {
+            "post": {
+                "tags": [
+                    "Actualizacion usuario"
+                ],
+                "summary": "permite actulizar usuarios",
+                "operationId": "App\\Http\\Controllers\\UsuarioController::actu_usua",
+                "parameters": [
+                    {
+                        "name": "varNumeDni",
+                        "in": "path",
+                        "description": "documento de identidad",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "11111111"
+                    },
+                    {
+                        "name": "varNombUsua",
+                        "in": "path",
+                        "description": "Nombre",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Andy"
+                    },
+                    {
+                        "name": "varApelUsua",
+                        "in": "path",
+                        "description": "Apellido",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Ancajima"
+                    },
+                    {
+                        "name": "varCodiUsua",
+                        "in": "path",
+                        "description": "Codigo usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "andy_cjam"
+                    },
+                    {
+                        "name": "varClavUsua",
+                        "in": "path",
+                        "description": "Clave",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "11111"
+                    },
+                    {
+                        "name": "varCorrUsua",
+                        "in": "path",
+                        "description": "correo institucional",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "andy@mimco.com.pe"
+                    },
+                    {
+                        "name": "varTelfUsua",
+                        "in": "path",
+                        "description": "telefono personal",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "12141214"
+                    },
+                    {
+                        "name": "varEstaUsua",
+                        "in": "path",
+                        "description": "estado",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "ACT"
+                    },
+                    {
+                        "name": "codi_usua",
+                        "in": "path",
+                        "description": "usuario quien actualiza",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "usuario"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varNumeDni": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varNumeDni": "25214121",
+                                    "varNombUsua": "Andy",
+                                    "varApelUsua": "Bladeu",
+                                    "varCodiUsua": "anca_sca",
+                                    "varClavUsua": "521412",
+                                    "varCorrUsua": "andy@mimco.com.pe",
+                                    "varTelfUsua": "2521412",
+                                    "varEstaUsua": "ACT",
+                                    "codi_usua": "usuario"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Se ha actualizado Correctamente."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/elim_usua": {
+            "post": {
+                "tags": [
+                    "Eliminar Usuario"
+                ],
+                "summary": "inactiva un usuario para que no pueda acceder al sistema",
+                "operationId": "App\\Http\\Controllers\\UsuarioController::elim_usua",
+                "parameters": [
+                    {
+                        "name": "varNumeDni",
+                        "in": "path",
+                        "description": "Numero de dni del usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "codi_usua",
+                        "in": "path",
+                        "description": "codigo de usuario que se usa para ingresar al sistema",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varNumeDni": {
+                                        "type": "string"
+                                    },
+                                    "codi_usua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varNumeDni": "13122014",
+                                    "codi_usua": "antony_rodriguez"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "El usuario ha sido eliminado."
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/list_usua": {
+            "get": {
+                "tags": [
+                    "Listar Usuarios"
+                ],
+                "summary": "lista los usuarios",
+                "operationId": "App\\Http\\Controllers\\UsuarioController::list_usua",
+                "responses": {
+                    "200": {
+                        "description": "Lista los usuarios."
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/elim_usua_prog": {
+            "post": {
+                "tags": [
+                    "Eliminar permisos"
+                ],
+                "summary": "permite eliminar permisos de un usuario especifico",
+                "operationId": "App\\Http\\Controllers\\UsuarioController::elim_usua_prog",
+                "parameters": [
+                    {
+                        "name": "intIdSoft",
+                        "in": "path",
+                        "description": "Colocar el Id del Modulo para eliminar los permisos que el usuario tenga en ese modulo",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2"
+                    },
+                    {
+                        "name": "varCodiUsua",
+                        "in": "path",
+                        "description": "Colocar el codigo usuario de quien se eliminaran los permisos",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "antony_rodasd"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdSoft": {
+                                        "type": "string"
+                                    },
+                                    "varCodiUsua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdSoft": "15",
+                                    "varCodiUsua": "antony_rodsda"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "se ha eliminado los programas."
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/regi_usua_prog": {
+            "post": {
+                "tags": [
+                    "Asignar permisos"
+                ],
+                "summary": "permite asignar permisos al usuario",
+                "operationId": "App\\Http\\Controllers\\UsuarioController::regi_usua_prog",
+                "parameters": [
+                    {
+                        "name": "intIdSoft",
+                        "in": "path",
+                        "description": "Colocar el Id del Modulo para asignar permisos al usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2"
+                    },
+                    {
+                        "name": "varCodiUsua",
+                        "in": "path",
+                        "description": "usuario a quien se le registraran permisos",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "antony_rodasd"
+                    },
+                    {
+                        "name": "acti_usua",
+                        "in": "path",
+                        "description": "usuario quien realiza el registro",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "antony_rodasd"
+                    },
+                    {
+                        "name": "intIdProg",
+                        "in": "path",
+                        "description": "Id del programa que sera asignado a un usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "50"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdSoft": {
+                                        "type": "string"
+                                    },
+                                    "varCodiUsua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varCodiUsua": "antony_rodsda",
+                                    "intIdProg": "50",
+                                    "intIdSoft": "12",
+                                    "acti_usua": "usuario"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registro Satisfactorio."
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/obte_perm": {
+            "post": {
+                "tags": [
+                    "Obtener permisos"
+                ],
+                "summary": "permite obtener permisos de un usuario especifico",
+                "operationId": "App\\Http\\Controllers\\UsuarioController::obte_perm",
+                "parameters": [
+                    {
+                        "name": "intIdSoft",
+                        "in": "path",
+                        "description": "Colocar el Id del Modulo que queremos listar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2"
+                    },
+                    {
+                        "name": "varCodiUsua",
+                        "in": "path",
+                        "description": "Colocar el codigo usuario para mostrar sus permisos",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "antony_rodasd"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdSoft": {
+                                        "type": "string"
+                                    },
+                                    "varCodiUsua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varCodiUsua": "antony_rodsda",
+                                    "intIdSoft": "15"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "se listan los permisos."
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/elim_usua_perf": {
+            "post": {
+                "tags": [
+                    "Eliminar perfil"
+                ],
+                "summary": "permite eliminar el perfil de un usuario(elimina los permisos del usuario)",
+                "operationId": "App\\Http\\Controllers\\UsuarioController::elim_usua_perf",
+                "parameters": [
+                    {
+                        "name": "varCodiUsua",
+                        "in": "path",
+                        "description": "Colocar el codigo usuario para eliminar el perfil",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "antony_rodasd"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varCodiUsua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varCodiUsua": "antony_rodsda"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "se ha eliminado los programas. "
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/copi_perf": {
+            "post": {
+                "tags": [
+                    "Copiar Perfil"
+                ],
+                "summary": "permite copiar perfil de un usuario",
+                "operationId": "App\\Http\\Controllers\\UsuarioController::copi_perf",
+                "parameters": [
+                    {
+                        "name": "varCodiUsua",
+                        "in": "path",
+                        "description": "codigo de usuario a quien se le asignara el perfil",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "ramiro_reas"
+                    },
+                    {
+                        "name": "IntIdUsua",
+                        "in": "path",
+                        "description": "Id del usuario a quien se le asignara el perfil",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "varUsuaPerf",
+                        "in": "path",
+                        "description": "usuario a quien se le copiara el perfil",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "antony_rodasd"
+                    },
+                    {
+                        "name": "acti_usua",
+                        "in": "path",
+                        "description": "usuario quien esta realizando la copia del perfil",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "antony_rodasd"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdSoft": {
+                                        "type": "string"
+                                    },
+                                    "varCodiUsua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varCodiUsua": "antony_rodsda",
+                                    "IntIdUsua": "15",
+                                    "varUsuaPerf": "jaime_nuera",
+                                    "acti_usua": "usuario"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Copia de perfil satisfactoria."
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/regi_usua_etap": {
+            "post": {
+                "tags": [
+                    "Asignar permiso al usuario etapa"
+                ],
+                "summary": "permite asignar permisos al usuario para las etapas",
+                "operationId": "App\\Http\\Controllers\\UsuarioController::regi_usua_etap",
+                "parameters": [
+                    {
+                        "name": "intIdEtapa",
+                        "in": "path",
+                        "description": "Colocar el Id de la etapa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2"
+                    },
+                    {
+                        "name": "varCodiUsua",
+                        "in": "path",
+                        "description": "usuario a quien se le registraran permisos",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "antony_rodas"
+                    },
+                    {
+                        "name": "acti_usua",
+                        "in": "path",
+                        "description": "ingresar el codigo del usuario que ha dado el permiso de etapa.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "andy_backlu"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdEtapa": {
+                                        "type": "string"
+                                    },
+                                    "varCodiUsua": {
+                                        "type": "string"
+                                    },
+                                    "acti_usua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdEtapa": "2",
+                                    "varCodiUsua": "antony_rodas",
+                                    "acti_usua": "andy_blacklu"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registro Satisfactorio."
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/list_usua_etap": {
+            "post": {
+                "tags": [
+                    "Lista la etapas asignadas a un usuario"
+                ],
+                "summary": "Permite lista la etapas asignadas a un usuario",
+                "operationId": "App\\Http\\Controllers\\UsuarioController::list_usua_etap",
+                "parameters": [
+                    {
+                        "name": "varCodiUsua",
+                        "in": "path",
+                        "description": "Colocar codigo del usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "andy_ancajima"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varCodiUsua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varCodiUsua": "andy_ancajima"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Muestra la informacion que se ha asignado a un usuario"
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/elim_usua_etap": {
+            "post": {
+                "tags": [
+                    "Eliminar las etapas aun usuario "
+                ],
+                "summary": "Permite eliminar todas las etapas para una usuario",
+                "operationId": "App\\Http\\Controllers\\UsuarioController::elim_usua_etap",
+                "parameters": [
+                    {
+                        "name": "varCodiUsua",
+                        "in": "path",
+                        "description": "Colocar codigo del usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "andy_ancajima"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varCodiUsua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varCodiUsua": "andy_ancajima"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Eliminacion Satisfactoria"
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/regi_usua_proyecto": {
+            "post": {
+                "tags": [
+                    "Asignar permiso al usuario en un proyecto"
+                ],
+                "summary": "permite asignar permisos al usuario para los proyectos",
+                "operationId": "App\\Http\\Controllers\\UsuarioController::regi_usua_proyecto",
+                "parameters": [
+                    {
+                        "name": "intIdProy",
+                        "in": "path",
+                        "description": "Colocar el Id de la etapa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "126"
+                    },
+                    {
+                        "name": "varCodiUsua",
+                        "in": "path",
+                        "description": "usuario a quien se le registraran permisos",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "antony_rodas"
+                    },
+                    {
+                        "name": "acti_usua",
+                        "in": "path",
+                        "description": "ingresar el codigo del usuario que ha realizado el registro",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "acti_usua"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdProy": {
+                                        "type": "string"
+                                    },
+                                    "varCodiUsua": {
+                                        "type": "string"
+                                    },
+                                    "acti_usua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdEtapa": "2",
+                                    "varCodiUsua": "antony_rodas",
+                                    "acti_usua": "andy_blacklu"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registro Satisfactorio."
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/list_usua_proy": {
+            "post": {
+                "tags": [
+                    "Listar los proyecto para  usuario"
+                ],
+                "summary": "Permite lista los proyecto asignadas a un usuario",
+                "operationId": "App\\Http\\Controllers\\UsuarioController::list_usua_proy",
+                "parameters": [
+                    {
+                        "name": "varCodiUsua",
+                        "in": "path",
+                        "description": "Colocar codigo del usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "andy_ancajima"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varCodiUsua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varCodiUsua": "andy_ancajima"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Muestra la informacion que se ha asignado a un usuario"
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/elim_usua_proyec": {
+            "post": {
+                "tags": [
+                    "Eliminar todo los proyecto asignado para aun usuario"
+                ],
+                "summary": "Permite eliminar todos proyectos asignados para a un determinado  usuario",
+                "operationId": "App\\Http\\Controllers\\UsuarioController::elim_usua_proyec",
+                "parameters": [
+                    {
+                        "name": "varCodiUsua",
+                        "in": "path",
+                        "description": "Colocar codigo del usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "andy_ancajima"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varCodiUsua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varCodiUsua": "andy_ancajima"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Eliminar usuario del proyecto"
+                    }
+                }
+            }
+        }
+    }
+}
